@@ -46,9 +46,9 @@ export const Post = ({postId, username, name, picUrl, post, postDescription, upv
                 </div>
 
                 <div className='post-links'>
-                <i onClick={() => navigate(`/posts/${postId}`)}  class="fa-sharp fa-regular fa-comment"></i>
+                <i style={{cursor:"pointer"}} onClick={() => navigate(`/posts/${postId}`)}  class="fa-sharp fa-regular fa-comment"></i>
                 <i class="fa-solid fa-share"></i>
-                { isBookmarked ? <i  onClick={() => bookmarkHandler(postId)} class="fa fa-bookmark"></i> :                 <i  onClick={() => bookmarkHandler(postId)} class="fa-regular fa-bookmark"></i>
+                { isBookmarked ? <i  style={{cursor:"pointer"}} onClick={() => bookmarkHandler(postId)} class="fa fa-bookmark"></i> :                 <i  style={{cursor:"pointer"}} onClick={() => bookmarkHandler(postId)} class="fa-regular fa-bookmark"></i>
 
 }
                 </div>
