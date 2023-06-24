@@ -31,17 +31,15 @@ export const AppContextProvider = ({children}) => {
         sort:""
     }
 
-    const {state, dispatch} = useReducer(reducer, initial)
+    const [state, dispatch] = useReducer(reducer, initial)
 
 
    
 
     function reducer(state, action){
         switch(action.type){
-            case"SORT_BY_LATEST":
-            return {...state, sort: action.payload}
-            case"SORT_BY_UPVOTES":
-            return {...state, sort: action.payload}
+            case"SORT":
+            return {...state, sort: action.payload};
             default:
             return state;
         }
@@ -60,9 +58,9 @@ export const AppContextProvider = ({children}) => {
 
         let filteredData = posts;
     
-        if (state.sort ===  "SORT_BY_UPVOTES") { posts.sort((a,b) => a.upvotes - b.upvotes) }
+        if (state?.sort ===  "SORT_BY_UPVOTES") { posts.sort((a,b) => b.upvotes - a.upvotes) }
 
-        if (state.sort ===  "SORT_BY_LATEST") { posts.sort(((a, b) => {
+        if (state?.sort ===  "SORT_BY_LATEST") { posts.sort(((a, b) => {
             const dateOne = new Date(a.createdAt);
             const dateTwo = new Date(b.createdAt);
             return dateTwo - dateOne;
